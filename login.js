@@ -1,7 +1,14 @@
+// DOM
+const emailIn = document.getElementById('email')
+const passIn = document.getElementById('pass')
+const btn = document.getElementById('login')
+btn.addEventListener("click", testing);
+
+// Data
 class Login {
-  constructor(username, password) {
-    this.user = username
-    this.pass = password
+  constructor(email, pass) {
+    this.email = email
+    this.pass = pass
     this.result = {}
   }
 
@@ -10,16 +17,18 @@ class Login {
   }
 
   login() {
-    if (this.isEmpty(this.user)) this.result.username = this.user
-    if (this.isEmpty(this.pass)) this.result.password = this.pass
+    if (this.isEmpty(this.email)) this.result.email = this.email
+    if (this.isEmpty(this.pass)) this.result.pass = this.pass
     return this.result
   }
 }
 
-//testing the code
-
-let val = new Login('adfdsf', 'fdsfds')
-let result = val.login()
-
-if (result.username) console.log(result.username)
-if (result.password) console.log(result.password)
+//this is only for testing we need to creat another one
+function testing() {
+  let email = emailIn.value
+      pass = passIn.value
+      val = new Login(email, pass)
+      task = val.login()
+  if (task.email) console.log(val.result.email)
+  if (task.pass) console.log(val.result.pass)
+}
